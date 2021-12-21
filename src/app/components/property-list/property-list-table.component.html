@@ -1,0 +1,24 @@
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th>Address</th>
+            <th>Price</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let tempProperty of properties">
+            <td class="aling-middle">
+                <img src="{{ tempProperty.imageUrl}}" height="50" />
+                
+            </td>
+            <td class="aling-middle">{{ tempProperty.propertyAddress}}</td>
+            <td class="aling-middle">{{ tempProperty.price | currency:'USD'}}</td>
+            <td class="aling-middle">{{ tempProperty.propertyBuiltYear }}</td>
+        </tr>
+    </tbody>
+</table>
+

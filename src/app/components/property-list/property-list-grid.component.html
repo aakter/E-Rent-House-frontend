@@ -1,0 +1,65 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- loop over property collections -->
+
+                <div *ngFor="let tempProperty of properties" class="col-md-3">
+                    <div class="product-box">
+                        <img src="{{ tempProperty.imageUrl}}" class="img-responsive">
+                        <h6>{{ tempProperty.propertyAddress}}</h6>
+                        <div class="price">{{ tempProperty.price | currency:'USD'}}</div>
+
+                        <!-- <p>{{ tempProperty.id}}</p> -->
+                        <!-- routerLink only thing Differ -->
+                        <!-- <a routerLink="/properties/{{ tempProperty.id }}"> -->
+                            <a  href="/properties/{{ tempProperty.id }}" class="primary-btn">View Details</a>
+                        <!-- </a> -->
+                    </div>
+                    
+                </div>
+
+                <!-- if property is empty display message -->
+                <div *ngIf="properties?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No Properties Found
+                </div>
+
+            </div>
+
+            <!-- begin footer -->
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-9" style="padding-left: 30%">
+                                <ngb-pagination [(page)]="thePageNumber"
+                                                [pageSize]="thePageSize"
+                                                [collectionSize]="theTotalElements"
+                                                [maxSize]="5"
+                                                [boundaryLinks]="true"
+                                                (pageChange)="listProperties()">
+
+                                </ngb-pagination>
+                            </div>
+
+                            <!-- drop down selection -->
+                            <div class="col-md-3 mt-2" style="text-align: right;">
+                                <span class="mr-2">Page Size</span>
+                                <select (change)="updatePageSize($any($event.target).value)">
+                                    <option selected="true">10</option>
+                                    <option>15</option>
+                                    <option>25</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- end footer -->
+        </div>
+    </div>
+</div>

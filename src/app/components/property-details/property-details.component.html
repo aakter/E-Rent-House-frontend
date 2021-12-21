@@ -1,0 +1,17 @@
+<div class="detail-section">
+    <div class="container-fluid">
+
+        <img src="{{ property.imageUrl }}" class="detail-img">
+        <hr>
+        <h3>{{ property.propertyAddress }}</h3>
+
+        <div class="price"> {{ property.price | currency: 'US' }} </div>
+
+        
+        <h4>{{ property.propertyBuiltYear }}</h4>
+
+        <a routerLink="/properties" class="mt-5">Properties List</a>
+    </div>
+
+</div>
+
